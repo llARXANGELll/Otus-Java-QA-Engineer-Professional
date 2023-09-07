@@ -1,33 +1,24 @@
 package test.java.testDir;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class BaseTest {
-
-    private WebDriver driver;
-
-
-    @BeforeTest
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
-
-    @AfterTest
-    public void TearDown() {
-        driver.quit();
-    }
+public class BaseTest extends AbstractTestClass {
 
 
     @Test
-    public void test() {
-        driver.get("https://www.google.com");
+    public void test1() {
+        openSuite("https://otus.ru");
+        clickToTextInBlock("верхний блок выбора направления", "Архитектура");
+        clickToTextInBlock("левый блок выбора направлений", "Управление");
+        System.out.println();
     }
+
+//    @Test
+//    public void test2() {
+//        openSuite("https://ya.ru");
+//
+//
+//    }
 
 
 }

@@ -1,0 +1,2 @@
+верхний блок выбора направления ;//section[@class="sc-10izyea-0 kZwiYW"]
+левый блок выбора направлений ;//div[@class="ReactCollapse--content"]
