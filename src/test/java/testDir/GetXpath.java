@@ -2,9 +2,9 @@ package test.java.testDir;
 
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
-import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,12 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class GetXpath{
+public class GetXpath {
     private static Map<String, Map<String, String>> xpathAll = new HashMap<>();
-    private static File pathInputID = getFileToResourceDirectoryInJar("/xpathFiles/InputID.txt");
-    private static File pathButtonID = getFileToResourceDirectoryInJar("/xpathFiles/ButtonID.txt");
-    private static File pathButtonNoNameID = getFileToResourceDirectoryInJar("/xpathFiles/ButtonNoNameID.txt");
-    private static File pathUtilsID = getFileToResourceDirectoryInJar("/xpathFiles/UtilsID.txt");
+    private static File pathInputID = getFileToResourceDirectoryInJar("src/test/resources/xpathFiles/InputID.txt");
+    private static File pathButtonID = getFileToResourceDirectoryInJar("src/test/resources/xpathFiles/ButtonID.txt");
+    private static File pathButtonNoNameID = getFileToResourceDirectoryInJar("src/test/resources/xpathFiles/ButtonNoNameID.txt");
+    private static File pathUtilsID = getFileToResourceDirectoryInJar("src/test/resources/xpathFiles/UtilsID.txt");
 
 
     static {
@@ -51,7 +51,7 @@ public class GetXpath{
     private static void setXpathToMap() {
         for (String path : xpathAll.keySet()) {
             HashMap<String, String> tags = new HashMap<>();
-            String myFile = null;
+            String myFile;
             try {
                 myFile = Files.readString(Paths.get(path));
             } catch (IOException e) {
@@ -70,7 +70,7 @@ public class GetXpath{
 
     @SneakyThrows
     public static File getFileToResourceDirectoryInJar(String fileName) {
-        var file = new ClassPathResource(fileName).getInputStream();
+        var file = new FileInputStream(fileName);
         File somethingFile = File.createTempFile(
                 fileName.replaceAll("(.*)(\\..*)", "$1"),
                 fileName.replaceAll("(.*)(\\..*)", "$2"));

@@ -23,8 +23,8 @@ public class AbstractTestClass {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
     }
 
     @AfterSuite
@@ -35,7 +35,6 @@ public class AbstractTestClass {
     public void openSuite(String url) {
         driver.get(url);
     }
-
 
     public WebElement getSeEl(String xpath) {
         checkVisibleElement(xpath);
@@ -63,6 +62,7 @@ public class AbstractTestClass {
 
     /**
      * Метод ожидания отображения элемента в течении 60 сек
+     *
      * @param xpath = xpath значение которое ищется в DOM.
      */
     @SneakyThrows

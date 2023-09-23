@@ -1,2 +1,6 @@
 .idea
 .git
+.allure
+target
+allure-results
+Otus-Java-QA-Engineer.-Professional.iml

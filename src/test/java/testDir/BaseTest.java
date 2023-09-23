@@ -2,8 +2,7 @@ package test.java.testDir;
 
 import org.testng.annotations.Test;
 
-public class BaseTest extends AbstractTestClass {
-
+public class BaseTest extends AbstractTestClass{
 
     @Test
     public void test1() {
