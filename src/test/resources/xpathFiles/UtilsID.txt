@@ -1,2 +1,3 @@
 верхний блок выбора направления ;//section[@class="sc-10izyea-0 kZwiYW"]
 левый блок выбора направлений ;//div[@class="ReactCollapse--content"]
+список анимированных проигрывателей в Яндекс поиске ;//div[contains(@class,"thumb-image__preview thumb-preview__target")]

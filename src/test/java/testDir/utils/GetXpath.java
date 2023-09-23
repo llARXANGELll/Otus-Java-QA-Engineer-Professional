@@ -1,4 +1,4 @@
-package test.java.testDir;
+package test.java.testDir.utils;
 
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
@@ -12,7 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class GetXpath {
+public class GetXpath extends AbstractTestClass {
+
     private static Map<String, Map<String, String>> xpathAll = new HashMap<>();
     private static File pathInputID = getFileToResourceDirectoryInJar("src/test/resources/xpathFiles/InputID.txt");
     private static File pathButtonID = getFileToResourceDirectoryInJar("src/test/resources/xpathFiles/ButtonID.txt");
@@ -58,6 +59,7 @@ public class GetXpath {
                 throw new RuntimeException("Файл по адресу: " + path + " отсутствует");
             }
             try (Scanner sc = new Scanner(myFile)) {
+
                 while (sc.hasNextLine()) {
                     String tag = sc.nextLine();
                     tags.put(tag.replaceAll(" ;.*", ""), tag.replaceAll(".*;", ""));
