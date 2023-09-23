@@ -15,6 +15,7 @@ public class BaseTest extends AbstractTestClass {
     @Test
     public void test2() {
         openSuite("https://yandex.ru/video/search?text=video");
+        checkSizeWebElementListIsLarger("список анимированных проигрывателей в Яндекс поиске", 0);
         hoverToListElementForIndex("список анимированных проигрывателей в Яндекс поиске", 1);
         checkContainsAttributeForListElementsInIndex("список анимированных проигрывателей в Яндекс поиске",
                 1, "class", "thumb-preview__target_playing");

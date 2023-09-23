@@ -72,6 +72,9 @@ public class AbstractTestClass {
         getSeEl(getUtilsID(nameBlock)).findElement(xpath(".//*[text()='" + textButton + "']")).click();
     }
 
+    /**
+     * Наведение курсора на конкретный элемент из списка.
+     */
     @SneakyThrows
     public void hoverToListElementForIndex(String xpathList, int index) {
         Actions actions = new Actions(driver);
@@ -79,6 +82,19 @@ public class AbstractTestClass {
         Thread.sleep(2000);
     }
 
+    /**
+     * Проверка что на странице присутствует список элементов по количеству больше ожидаемого.
+     */
+    public void checkSizeWebElementListIsLarger(String xpathList, int expectedSize) {
+        var actualSize = getElCo(getUtilsID(xpathList)).size();
+        softAssert.assertEquals(actualSize > expectedSize, true,
+                lineSeparator() + "Ожидается на странице элементов больше " + expectedSize +
+                        lineSeparator() + "ФР на странице элементов: " + actualSize + lineSeparator());
+    }
+
+    /**
+     * Проверка содержания нужного атрибута конкретного элемента из списка элементов.
+     */
     public void checkContainsAttributeForListElementsInIndex(String xpathList, int index,
                                                              String nameClassAttribute, String expectedAttribute) {
         var actualAttribute = getElCo(getUtilsID(xpathList)).get(index - 1).getAttribute(nameClassAttribute);
